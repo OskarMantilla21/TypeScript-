@@ -1,17 +1,15 @@
 import React from 'react';
+import { Box } from '@mui/material';
 
 type InputValue = string | number | MyObject;
-
 interface MyObject {
   name: string;
   age: number;
 }
-
-interface InputDisplayProps {
+interface TsInputProps {
   value: InputValue;
 }
-
-function InputDisplay({ value }: InputDisplayProps) {
+function TsInput({ value }: TsInputProps) {
   const renderValue = () => {
     if (typeof value === 'string') {
       return <p>String: {value}</p>;
@@ -21,12 +19,10 @@ function InputDisplay({ value }: InputDisplayProps) {
       return <p>Object - Name: {value.name}, Age: {value.age}</p>;
     }
   };
-
   return (
-    <div>
+    <Box>
       {renderValue()}
-    </div>
+    </Box>
   );
 }
-
-export default InputDisplay;
+export default TsInput;
